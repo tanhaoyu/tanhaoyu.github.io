@@ -1,11 +1,11 @@
 .post pre,
 .post .highlight {
-  background: #000;
+  background: #f7f7f7;
   margin: 20px 0;
   padding: 15px;
   overflow: auto;
   font-size: 13px;
-  color: #eaeaea;
+  color: #4d4d4c;
   line-height: $line-height-code-block;
 }
 .post .highlight .gutter pre,
@@ -75,7 +75,7 @@
 }
 .post .highlight figcaption {
   font-size: 0.85em;
-  color: #969896;
+  color: #8e908c;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -96,7 +96,7 @@
   border-style: solid;
   border-color: $border-color;
   border-width: 1px 0;
-  background: #000;
+  background: #f7f7f7;
   padding: 15px $content-desktop-padding 15px 15px;
 }
 .post .gist .gist-file {
@@ -122,8 +122,8 @@
   border: none;
 }
 .post .gist .gist-file .gist-meta {
-  background: #000;
-  color: #969896;
+  background: #f7f7f7;
+  color: #8e908c;
   font: 13px $font-family-base;
   text-shadow: 0 0;
   padding: 0;
@@ -138,7 +138,7 @@
   text-decoration: underline;
 }
 pre .comment {
-  color: #969896;
+  color: #8e908c;
 }
 pre .variable,
 pre .attribute,
@@ -152,7 +152,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #d54e53;
+  color: #c82829;
 }
 pre .number,
 pre .preprocessor,
@@ -160,11 +160,11 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #e78c45;
+  color: #f5871f;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #b9ca4a;
+  color: #718c00;
 }
 pre .string,
 pre .value,
@@ -172,11 +172,11 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #b9ca4a;
+  color: #718c00;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #70c0b1;
+  color: #3e999f;
 }
 pre .function,
 pre .python .decorator,
@@ -187,12 +187,12 @@ pre .perl .sub,
 pre .javascript .title,
 pre .js .title,
 pre .coffeescript .title {
-  color: #7aa6da;
+  color: #4271ae;
 }
 pre .keyword,
 pre .javascript .function,
 pre .js .function {
-  color: #c397d8;
+  color: #8959a8;
 }
 /* normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -1716,14 +1716,14 @@ header.header .header-cont .navigation.scrolled .nav-link {
   padding: 5px;
   line-height: 1.1em;
   font-size: 0.85rem;
-  color: #eaeaea;
+  color: #4d4d4c;
 }
 .index-content .right-info .friend-links a:hover {
   text-decoration: underline;
   color: #3f86b5;
 }
 .index-content .right-info .friend-links .tip {
-  color: #424242;
+  color: #d6d6d6;
   font-size: 0.7rem;
   padding: 5px;
 }
