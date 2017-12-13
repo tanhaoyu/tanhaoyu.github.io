@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="谭浩宇, 448614989@qq.com">
+<meta name="reply-to" content="448614989@qq.com">
+<meta name="owner" content="谭浩宇">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content=" 448614989@qq.com" />
+
+
+
+
+<meta name="keywords" content="mysql,sql,mysql数据库,数据库操作" />
+
+
+<meta name="description" content="这是我[mysql数据库]中的第一篇文章。最近很忙，一直在利用空闲时间做思维导图，今天终于有时间把思维导图发出来了，mysql这里的知识还是比较简单的，重在操作练习，mysql的索引原理和底层的引擎以后有时间再补上吧~太太太太太忙了…orz对了，思维导图中的drop删除不需要学习了，记得mysql的字典里没有删除操作（要删除也是逻辑删除），不然新人很容易从删库到跑路的~  思维导图">
+<meta name="keywords" content="mysql,sql,mysql数据库,数据库操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据库总结">
+<meta property="og:url" content="http://yoursite.com/2017/12/13/mysql数据库总结/index.html">
+<meta property="og:site_name" content="谭浩宇的博客">
+<meta property="og:description" content="这是我[mysql数据库]中的第一篇文章。最近很忙，一直在利用空闲时间做思维导图，今天终于有时间把思维导图发出来了，mysql这里的知识还是比较简单的，重在操作练习，mysql的索引原理和底层的引擎以后有时间再补上吧~太太太太太忙了…orz对了，思维导图中的drop删除不需要学习了，记得mysql的字典里没有删除操作（要删除也是逻辑删除），不然新人很容易从删库到跑路的~  思维导图">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/mysql.png">
+<meta property="og:updated_time" content="2017-12-13T02:03:07.550Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql数据库总结">
+<meta name="twitter:description" content="这是我[mysql数据库]中的第一篇文章。最近很忙，一直在利用空闲时间做思维导图，今天终于有时间把思维导图发出来了，mysql这里的知识还是比较简单的，重在操作练习，mysql的索引原理和底层的引擎以后有时间再补上吧~太太太太太忙了…orz对了，思维导图中的drop删除不需要学习了，记得mysql的字典里没有删除操作（要删除也是逻辑删除），不然新人很容易从删库到跑路的~  思维导图">
+<meta name="twitter:image" content="http://yoursite.com/images/mysql.png">
+
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.2" />
+
+
+
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.2"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> mysql数据库总结 </title>
+  
+
+
+
+
+</head>
+<body lang="zh-Hans">
+
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header" style="background: url(/images/mysqlbg.jpg) center / cover">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title" data-text="mysql数据库总结"> mysql数据库总结 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            发表于
+            <time  datetime="2017-12-13T09:27:58+08:00" content="2017-12-13">
+              2017-12-13
+            </time>
+          </div>
+
+          
+            <div class="post-category" >
+              
+                <span>
+                  <a href="/categories#mysql数据库" itemprop="url" rel="index">
+                    <span itemprop="name">mysql数据库</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </div>
+          
+
+          
+            
+          
+        </div>
+        
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
+        
+        <a class="nav-link" href="/" rel="section">
+          首页
+        </a>
+      
+        
+        <a class="nav-link" href="/../../categories" rel="section">
+          分类
+        </a>
+      
+        
+        <a class="nav-link" href="/tags" rel="section">
+          标签
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          关于
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+  <div class="post-body">
+
+    <div class="content markdown-body"><p>这是我[mysql数据库]中的第一篇文章。最近很忙，一直在利用空闲时间做思维导图，今天终于有时间把思维导图发出来了，mysql这里的知识还是比较简单的，重在操作练习，mysql的索引原理和底层的引擎以后有时间再补上吧~太太太太太忙了…orz<br>对了，思维导图中的drop删除不需要学习了，记得mysql的字典里没有删除操作（要删除也是逻辑删除），不然新人很容易从删库到跑路的~ </p>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><img src="/../images/mysql.png" class="[mysql数据库]" title="[3542] [6679]">
+</div>
+
+    <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图"><span class="nav-text">思维导图</span></a></li></ol></div>
+      
+    </div>
+  </section>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-tags">
+        
+          <a href="/tags#mysql数据库" rel="tag">#mysql数据库</a>
+        
+      </div>
+    
+    
+  <style>
+    .donation {
+      width: 100%;
+      margin-top: 2rem;
+    }
+    .donation .text {
+      color: #333;
+      font-size: .8rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .donation .text:hover {
+      color: rgb(63,134,181);
+    }
+    .donation .img-box {
+      transition: all .3s;
+      width: 0;
+      height: 0;
+      margin: 1rem auto;
+      overflow: hidden;
+    }
+    .donation .img-box img {
+      width: 100%;
+      height: 100%;
+    }
+    .donation #donation {
+      display: none;
+    }
+    .donation #donation:checked + .img-box {
+      width: 16rem;
+      height: 16rem;
+    }
+  </style>
+  <div class="donation">
+    <label class="text" for="donation">
+      如果你觉得文章对你有帮助，请问我买一杯咖啡吧，谢谢你～
+    </label>
+    <input type="checkbox" name="donation" id="donation">
+    <div class="img-box">
+      <img src="/images/realcafe.jpg" alt="donation" />
+    </div>
+  </div>
+
+
+  </footer>
+
+</article>
+
+
+
+
+      
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+
+
+    </main>
+
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy; 
+    <span itemprop="copyrightYear">2017</span>
+    <span class="author" itemprop="copyrightHolder">谭浩宇</span>
+  </div>
+
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date('11/09/2017');
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+    <span id="busuanzi_container_site_pv">
+        总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+  </div>
+
+  <div class="my-theme">
+    Theme change by <a href="/">tanhaoyu</a> | <iframe style="margin-left: 5px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=tanhaoyu&amp;repo=tanhaoyu.github.io&amp;type=star&amp;count=true"></iframe>
+  </div>
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1b627c26ed848712c5887effdf48acee";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</footer>
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script type="text/javascript" src="/js/motto.min.js?v=0.0.2"></script>
+<script type="text/javascript" src="/js/main.js?v=0.0.2"></script>
+
+
+</body>
+</html>
